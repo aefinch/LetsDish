@@ -228,7 +228,10 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IngredientsController.cs" />
+    <Compile Include="Controllers\RecipesController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -240,6 +243,14 @@
     <Compile Include="Migrations\201712060217128_setupTables.cs" />
     <Compile Include="Migrations\201712060217128_setupTables.Designer.cs">
       <DependentUpon>201712060217128_setupTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712130032266_seedData.cs" />
+    <Compile Include="Migrations\201712130032266_seedData.Designer.cs">
+      <DependentUpon>201712130032266_seedData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712150233161_reviseIngredientTable.cs" />
+    <Compile Include="Migrations\201712150233161_reviseIngredientTable.Designer.cs">
+      <DependentUpon>201712150233161_reviseIngredientTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -262,6 +273,18 @@
     <Content Include="Global.asax" />
     <Content Include="ngApp\app.js" />
     <Content Include="ngApp\appConfig.js" />
+    <Content Include="ngApp\Controllers\eventsController.js" />
+    <Content Include="ngApp\Controllers\friendsController.js" />
+    <Content Include="ngApp\Controllers\loginController.js" />
+    <Content Include="ngApp\Controllers\recipeController.js" />
+    <Content Include="ngApp\Views\addRecipe.html" />
+    <Content Include="ngApp\Views\recipeList.html" />
+    <Content Include="ngApp\Views\login.html" />
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular-route.js" />
+    <Content Include="Scripts\angular-route.min.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -286,6 +309,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Scripts\angular-route.min.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -297,7 +322,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -314,9 +341,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="ngApp\Controllers\" />
     <Folder Include="ngApp\Factories\" />
-    <Folder Include="ngApp\Views\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -337,6 +362,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712060217128_setupTables.resx">
       <DependentUpon>201712060217128_setupTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712130032266_seedData.resx">
+      <DependentUpon>201712130032266_seedData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712150233161_reviseIngredientTable.resx">
+      <DependentUpon>201712150233161_reviseIngredientTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

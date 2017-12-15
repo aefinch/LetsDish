@@ -9,9 +9,7 @@ namespace LetsDish.Models
 	{
 		[Key]
 		public int IngredientId { get; set; }
-		public string IngredientName { get; set; }
-		public decimal Quantity { get; set; }
-		public string UnitOfMeasure { get; set; }
+		public string IngredientDescription { get; set; }
 		public bool OnShoppingList { get; set; }
 		public virtual Recipe Recipe {get; set;}
 	}

@@ -21,7 +21,7 @@ namespace LetsDish
 					"~/Scripts/angular-route.js",
 					"~/ngApp/app.js",
 					"~/ngApp/appConfig.js")
-				.IncludeDirectory("~/app/Controllers", "*.js", true)
+				.IncludeDirectory("~/ngapp/Controllers", "*.js", true)
 			   .IncludeDirectory("~/ngApp/Factories", "*.js", true));
 
 			bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
