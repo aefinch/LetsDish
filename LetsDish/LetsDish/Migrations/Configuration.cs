@@ -4,6 +4,7 @@ namespace LetsDish.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+	using LetsDish.Models;
 	using Microsoft.AspNet.Identity.EntityFramework;
 
 	internal sealed class Configuration : DbMigrationsConfiguration<LetsDish.Models.ApplicationDbContext>
@@ -27,7 +28,15 @@ namespace LetsDish.Migrations
 			//      new Person { FullName = "Rowan Miller" }
 			//    );
 			//
-			
+			var userManager = new ApplicationUserManager(new UserStore<ApplicationUser>(context));
+
+			var user = new ApplicationUser
+			{
+				UserName = "TestUser",
+				Email = "test@aol.com",
+			};
+
+			userManager.CreateAsync(user, "password").Wait();
 		}
 	}
 }

@@ -44,5 +44,7 @@ namespace LetsDish.Models
 			modelBuilder.Entity<ApplicationUser>().HasMany(m => m.Friends).WithMany();
 
 		}
+
+		//public System.Data.Entity.DbSet<LetsDish.Models.ApplicationUser> ApplicationUsers { get; set; }
 	}
 }
