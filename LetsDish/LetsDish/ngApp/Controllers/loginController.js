@@ -6,7 +6,6 @@
     };
     vm.login = function () {
 
-        console.log(vm.username, vm.password);
         vm.error = "";
         vm.inProgress = true;
         $http({
@@ -25,7 +24,6 @@
                 sessionStorage.setItem('token', result.data.access_token);
                 $http.defaults.headers.common['Authorization'] = `bearer ${result.data.access_token}`;
                 $location.path("/");
-
                 vm.inProgress = false;
             }, function (result) {
                 vm.error = result.data.error_description;

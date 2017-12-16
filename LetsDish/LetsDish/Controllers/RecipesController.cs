@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using LetsDish.Models;
+using Microsoft.AspNet.Identity;
 
 namespace LetsDish.Controllers
 {
@@ -38,7 +39,7 @@ namespace LetsDish.Controllers
 
         // PUT: api/Recipes/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutRecipe(int id, Recipe recipe)
+        public IHttpActionResult PutRecipe(int id, [FromBody] Recipe recipe)
         {
             if (!ModelState.IsValid)
             {
@@ -75,7 +76,10 @@ namespace LetsDish.Controllers
         [ResponseType(typeof(Recipe))]
         public IHttpActionResult PostRecipe(Recipe recipe)
         {
-            if (!ModelState.IsValid)
+			var currentUser = User.Identity.GetUserId().ToString();
+			recipe.User = db.Users.Find(currentUser);
+
+			if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }

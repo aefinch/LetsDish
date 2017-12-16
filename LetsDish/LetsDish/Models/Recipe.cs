@@ -12,9 +12,9 @@ namespace LetsDish.Models
 		public int RecipeId { get; set; }
 		public string RecipeName { get; set; }
 		public string Instructions { get; set; }
-		public int Yield { get; set; }
+		public string Yield { get; set; }
 		public string RecipeSource { get; set; }
-		public int MinutesToMake { get; set; }
+		public string MinutesToMake { get; set; }
 		public int Rating { get; set; }
 		public string Picture { get; set; }
 		public string Notes { get; set; }

@@ -252,6 +252,10 @@
     <Compile Include="Migrations\201712150233161_reviseIngredientTable.Designer.cs">
       <DependentUpon>201712150233161_reviseIngredientTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712161833255_reviseRecipeInputTypes.cs" />
+    <Compile Include="Migrations\201712161833255_reviseRecipeInputTypes.Designer.cs">
+      <DependentUpon>201712161833255_reviseRecipeInputTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -259,6 +263,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Models\Recipe.cs" />
+    <Compile Include="Models\AddIngredient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
@@ -359,15 +364,21 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201712050201283_IdentitySetup.resx">
       <DependentUpon>201712050201283_IdentitySetup.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712060217128_setupTables.resx">
       <DependentUpon>201712060217128_setupTables.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712130032266_seedData.resx">
       <DependentUpon>201712130032266_seedData.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712150233161_reviseIngredientTable.resx">
       <DependentUpon>201712150233161_reviseIngredientTable.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712161833255_reviseRecipeInputTypes.resx">
+      <DependentUpon>201712161833255_reviseRecipeInputTypes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

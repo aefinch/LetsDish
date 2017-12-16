@@ -18,9 +18,9 @@ namespace LetsDish.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: api/Ingredients
-        public IQueryable<Ingredient> GetIngredient()
+        public List<Ingredient> GetIngredient()
         {
-            return db.Ingredient;
+            return db.Ingredient.ToList();
         }
 
         // GET: api/Ingredients/5
@@ -35,9 +35,18 @@ namespace LetsDish.Controllers
 
             return Ok(ingredient);
         }
+		// GET: api/Ingredients/forRecipe/5
+		[ResponseType(typeof(Ingredient))]
+		[HttpGet, Route("api/Ingredients/forRecipe/{recipeId}")]
+		public HttpResponseMessage GetIngredientsByRecipe(int recipeId)
+		{
+			var db = new ApplicationDbContext();
+			var ingredients = db.Ingredient.Where(ingredient => ingredient.Recipe.RecipeId == recipeId);
+			return Request.CreateResponse(HttpStatusCode.OK, ingredients.ToList());
+		}
 
-        // PUT: api/Ingredients/5
-        [ResponseType(typeof(void))]
+		// PUT: api/Ingredients/5
+		[ResponseType(typeof(void))]
         public IHttpActionResult PutIngredient(int id, Ingredient ingredient)
         {
             if (!ModelState.IsValid)
@@ -72,15 +81,22 @@ namespace LetsDish.Controllers
         }
 
         // POST: api/Ingredients
-        [ResponseType(typeof(Ingredient))]
-        public IHttpActionResult PostIngredient(Ingredient ingredient)
+        [ResponseType(typeof(AddIngredient))]
+        public IHttpActionResult PostIngredient(AddIngredient ingredient)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+			var newIngredient = new Ingredient
+			{
+				IngredientDescription = ingredient.IngredientDescription,
+				OnShoppingList = ingredient.OnShoppingList,
+				Recipe = db.Recipe.Find(ingredient.RecipeId)
+		
+			};
 
-            db.Ingredient.Add(ingredient);
+            db.Ingredient.Add(newIngredient);
             db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = ingredient.IngredientId }, ingredient);
