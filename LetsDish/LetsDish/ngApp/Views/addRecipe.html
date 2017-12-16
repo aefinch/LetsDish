@@ -6,13 +6,33 @@
         </div>
         <button ng-show="vm.setup" type="submit" class="btn btn-default" ng-click="vm.generateForm()">Submit</button>
     </form>
-    <form class="form-inline" ng-show="!vm.setup">
+    <div ng-repeat="ingredient in vm.ingredients">
+        {{ingredient.IngredientDescription}}
+
+    </div>
+    <form class="form-inline" ng-show="!vm.setup && !vm.writeRecipe">
         <label>Add an ingredient:</label>
         
         <input ng-model="vm.ingredient.IngredientDescription" type="text" class="form-control" />
-        <button type="submit" class="btn btn-default" ng-click="vm.addIngredient()">Next</button>
+        <button type="submit" class="btn btn-default" ng-click="vm.addIngredient()">Next Ingredient</button>
+        <button type="submit" class="btn btn-default" ng-click="vm.addDirections()">Done with Ingredients</button>
 
-    </form>    
+    </form> 
+    <form ng-show="vm.writeRecipe">
+        <div class="form-group">
+            <label>Directions</label>
+            <textarea ng-model="vm.recipe.Instructions" class="form-control"/>
+            <label>Yield</label>
+            <input type="text" class="form-control" ng-model="vm.recipe.Yield" />
+            <label>Author</label>
+            <input type="text" class="form-control" ng-model="vm.recipe.RecipeSource" />
+            <label>Time to Make</label>
+            <input type="text" class="form-control" ng-model="vm.recipe.MinutesToMake" />
+            <label>Notes</label>
+            <input type="text" class="form-control" ng-model="vm.recipe.Notes" />
+        </div>
+        <button type="submit" class="btn btn-default" ng-click="vm.updateRecipe()">Submit Recipe</button>
+    </form>
     <!--<form>
             <div class="form-group" ng-show="vm.setup">
                 <label for="exampleInputPassword1">How many total ingredients are needed for this recipe?</label>
