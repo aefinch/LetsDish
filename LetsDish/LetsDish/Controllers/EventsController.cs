@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using LetsDish.Models;
+using Microsoft.AspNet.Identity;
 
 namespace LetsDish.Controllers
 {
@@ -75,7 +76,10 @@ namespace LetsDish.Controllers
         [ResponseType(typeof(Event))]
         public IHttpActionResult PostEvent(Event @event)
         {
-            if (!ModelState.IsValid)
+			var currentUser = User.Identity.GetUserId().ToString();
+			@event.User = db.Users.Find(currentUser);
+
+			if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }

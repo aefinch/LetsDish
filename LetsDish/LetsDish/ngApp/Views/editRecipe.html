@@ -1,0 +1,45 @@
+﻿<div ng-controller="editRecipeController as vm">
+    <form>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Recipe Name</label>
+            <input ng-model="vm.recipe.RecipeName" type="text" class="form-control" id="exampleInputEmail1" placeholder="Name">
+        </div>
+    </form>
+   
+    <form class="form-inline" >
+        <label>Ingredients</label>
+        <div ng-repeat="ingredient in vm.ingredients">
+            <ul ng-show="!vm.editIngredient">{{ingredient.IngredientDescription}}</ul>
+            <input ng-show="vm.editIngredient" ng-model="ingredient.IngredientDescription" type="text" class="form-control" />
+            <button ng-show="vm.editIngredient" type="submit" class="btn btn-default" ng-click="vm.updateIngredient(ingredient)">Update</button>
+            <button ng-show="vm.editIngredient" type="submit" class="btn btn-default" ng-click="vm.deleteIngredient(ingredient.IngredientId)">Delete</button>
+        </div>
+        <button ng-show="!vm.editIngredient" type="submit" class="btn btn-default" ng-click="vm.showEditIngredient()">Update Ingredients</button>
+        <button type="submit" ng-show="!vm.moreIngredients" class="btn btn-default" ng-click="vm.addMoreIngredients()">Add New Ingredients</button>
+
+    </form>
+    <form class="form-inline" ng-show="vm.moreIngredients">
+        <label>Add an ingredient:</label>
+
+        <input ng-model="vm.ingredient.IngredientDescription" type="text" class="form-control" />
+        <button type="submit" class="btn btn-default" ng-click="vm.addIngredient()">Next Ingredient</button>
+        <button type="submit" class="btn btn-default" ng-click="vm.doneWithIngredients()">Done with Ingredients</button>
+
+    </form> 
+    <form >
+        <div class="form-group">
+            <label>Directions</label>
+            <textarea ng-model="vm.recipe.Instructions" class="form-control" />
+            <label>Yield</label>
+            <input type="text" class="form-control" ng-model="vm.recipe.Yield" />
+            <label>Author</label>
+            <input type="text" class="form-control" ng-model="vm.recipe.RecipeSource" />
+            <label>Time to Make</label>
+            <input type="text" class="form-control" ng-model="vm.recipe.MinutesToMake" />
+            <label>Notes</label>
+            <input type="text" class="form-control" ng-model="vm.recipe.Notes" />
+        </div>
+        <button type="submit" class="btn btn-default" ng-click="vm.updateRecipe()">Submit Recipe</button>
+    </form>
+    
+</div>

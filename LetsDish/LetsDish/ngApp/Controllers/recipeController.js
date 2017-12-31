@@ -47,6 +47,7 @@
     };
     vm.updateRecipe = function () {
         let recipe = vm.recipe;
+        recipe.Picture = "./images/placeholder.png"
         $http.put(`/api/Recipes/${currentRecipe.RecipeId}`,
             JSON.stringify({
                 RecipeId: currentRecipe.RecipeId,
@@ -60,9 +61,18 @@
                 Notes: recipe.Notes,
                 Events: recipe.Events
                
-            })).then(result => $location.path("/"))
+            })).then(function (result) {
+                $location.path("/");
+                vm.myRecipes();
+            })
             .catch(error => console.log(error));
 
+    }
+    vm.myRecipes = function () {
+        $http.get("api/Recipes/forUser")
+            .then(function (result) {
+                vm.recipes = result.data;
+            })
     }
 
 }]);

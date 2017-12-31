@@ -23,9 +23,17 @@ namespace LetsDish.Controllers
         {
             return db.Recipe;
         }
-
-        // GET: api/Recipes/5
-        [ResponseType(typeof(Recipe))]
+		// GET: api/Recipes/forUser/5
+		[ResponseType(typeof(Recipe))]
+		[HttpGet, Route("api/Recipes/forUser")]
+		public HttpResponseMessage GetRecipesByUser()
+		{
+			var currentUser = User.Identity.GetUserId().ToString();
+			var recipes = db.Recipe.Where(recipe => recipe.User.Id == currentUser);
+			return Request.CreateResponse(HttpStatusCode.OK, recipes.ToList());
+		}
+		// GET: api/Recipes/5
+		[ResponseType(typeof(Recipe))]
         public IHttpActionResult GetRecipe(int id)
         {
             Recipe recipe = db.Recipe.Find(id);

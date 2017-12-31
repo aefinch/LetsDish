@@ -9,7 +9,7 @@
         .when("/",
         {
             templateUrl: "/ngApp/Views/recipeList.html",
-            controller: "recipeController"
+            controller: "recipeListController"
         })
         .when("/addRecipe",
         {
@@ -17,17 +17,37 @@
             controller: "recipeController"
 
         })
+        .when("/editRecipe/:id",
+        {
+            templateUrl: "/ngApp/Views/editRecipe.html",
+            controller: "editRecipeController"
+        })
+        .when("/recipeView/:id",
+        {
+            templateUrl: "/ngApp/Views/singleRecipe.html",
+            controller: "recipeViewController"
+        })
         .when("/myFriends",
         {
             templateUrl: "/ngApp/Views/myFriends.html",
             controller: "friendsController"
 
         })
+        .when("/shoppingList",
+        {
+            templateUrl: "/ngApp/Views/shoppingList.html",
+            controller: "shoppingListController"
+        })
         .when("/events",
         {
             templateUrl: "/ngApp/Views/myEvents.html",
             controller: "eventsController"
 
+        })
+        .when("/addEvent",
+        {
+            templateUrl: "/ngApp/Views/addEvent.html",
+            controller: "eventsController"
         });
 
 

@@ -231,6 +231,10 @@
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IngredientsController.cs" />
+    <Compile Include="Controllers\PhotoController.cs" />
+    <Compile Include="Controllers\photo\IPhotoManager.cs" />
+    <Compile Include="Controllers\photo\LocalPhotoManager.cs" />
+    <Compile Include="Controllers\photo\PhotoMultipartFormDataStreamProvider.cs" />
     <Compile Include="Controllers\RecipesController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -276,15 +280,25 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="images\placeholder.png" />
     <Content Include="ngApp\app.js" />
     <Content Include="ngApp\appConfig.js" />
+    <Content Include="ngApp\Controllers\editRecipeController.js" />
     <Content Include="ngApp\Controllers\eventsController.js" />
     <Content Include="ngApp\Controllers\friendsController.js" />
     <Content Include="ngApp\Controllers\loginController.js" />
     <Content Include="ngApp\Controllers\recipeController.js" />
+    <Content Include="ngApp\Controllers\recipeListController.js" />
+    <Content Include="ngApp\Controllers\recipeViewController.js" />
+    <Content Include="ngApp\Controllers\shoppingListController.js" />
+    <Content Include="ngApp\Controllers\egFiles.js" />
+    <Content Include="ngApp\Views\addEvent.html" />
     <Content Include="ngApp\Views\addRecipe.html" />
+    <Content Include="ngApp\Views\editRecipe.html" />
     <Content Include="ngApp\Views\recipeList.html" />
     <Content Include="ngApp\Views\login.html" />
+    <Content Include="ngApp\Views\shoppingList.html" />
+    <Content Include="ngApp\Views\singleRecipe.html" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-route.js" />
     <Content Include="Scripts\angular-route.min.js" />
@@ -346,7 +360,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="ngApp\Factories\" />
+    <Folder Include="ngApp\photo\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
