@@ -1,0 +1,52 @@
+﻿<div ng-controller="recipeViewController as vm">
+    <h1>{{vm.recipe.RecipeName}}</h1>
+    <h3>{{vm.recipe.RecipeSource}}</h3>
+    <table class="table table-striped">
+        <tr ng-repeat="ingredient in vm.ingredients">
+            <td>{{ingredient.IngredientDescription}}</td>
+            <td>
+                <button type="submit" class="btn btn-default" ng-click="vm.addToList(ingredient)">Add To Shopping List</button>
+            </td>
+        </tr>
+    </table>
+    <!--<div ng-repeat="ingredient in vm.ingredients">
+       <ul>{{ingredient.IngredientDescription}}
+       </ul>
+        <button type="submit" class="btn btn-default" ng-click="vm.addToList(ingredient)">Add To Shopping List</button>
+
+    </div>-->
+   <h4>Instructions:</h4>
+    <div>
+        {{vm.recipe.Instructions}}
+    </div>
+    Yields: {{vm.recipe.Yield}}
+    <br />
+    Time to Make: {{vm.recipe.MinutesToMake}}
+
+    <br />
+    <br />
+
+    <!--<div class="form-group">
+        <label for="exampleInputFile">Replace recipe picture?</label>
+        <input ng-model="vm.image" accept="image/*" type="file" id="exampleInputFile">
+        <input type="file" id="newPhotos" class="uploadFile" accept="image/*" eg-files="photos" has-files="hasFiles">
+
+        <button type="submit" class="btn btn-default" ng-click="vm.addPicture()">Upload</button>
+
+    </div>-->
+    <form name="newPhotosForm" role="form" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="newPhotos">Replace recipe picture?</label>
+            <input type="file" id="newPhotos" class="uploadFile" accept="image/*" eg-files="photos" has-files="hasFiles" ng-click="vm.showButton()">
+        </div>
+        <div ng-show="vm.uploadPic" class="form-group">
+            <input class="btn btn-primary" type="button" ng-click="vm.addPicture()" value="Upload">
+        </div>
+    </form>
+
+    <button ng-show="!vm.overwriteRecipe" type="submit" class="btn btn-default" ng-click="vm.editRecipe()">Edit/Update Recipe</button>
+    <div ng-show="vm.overwriteRecipe">
+        <button type="submit" class="btn btn-default" ng-click="vm.editCurrentRecipe()">Overwrite Current Recipe</button> or  
+        <button type="submit" class="btn btn-default" ng-click="vm.duplicateRecipe(vm.recipe)">Save Changes as New</button>?
+    </div>
+</div>

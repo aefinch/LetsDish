@@ -45,9 +45,19 @@ namespace LetsDish.Controllers
 			return Request.CreateResponse(HttpStatusCode.OK, ingredients.ToList());
 		}
 
+		// GET: api/Ingredients/onList/forRecipe/5
+		[ResponseType(typeof(Ingredient))]
+		[HttpGet, Route("api/Ingredients/onList/forRecipe/{recipeId}")]
+		public HttpResponseMessage GetShoppingList(int recipeId)
+		{
+			var db = new ApplicationDbContext();
+			var ingredients = db.Ingredient.Where(ingredient => ingredient.Recipe.RecipeId == recipeId && ingredient.OnShoppingList == true);
+			return Request.CreateResponse(HttpStatusCode.OK, ingredients.ToList());
+		}
+
 		// PUT: api/Ingredients/5
 		[ResponseType(typeof(void))]
-        public IHttpActionResult PutIngredient(int id, Ingredient ingredient)
+        public IHttpActionResult PutIngredient(int id, [FromBody] Ingredient ingredient)
         {
             if (!ModelState.IsValid)
             {
