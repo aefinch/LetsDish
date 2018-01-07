@@ -45,7 +45,7 @@
     </form>
 
     <button ng-show="!vm.overwriteRecipe" type="submit" class="btn btn-default" ng-click="vm.editRecipe()">Edit/Update Recipe</button>
-    <button ng-show="!vm.overwriteRecipe" type="submit" class="btn btn-default" data-toggle="modal" data-target="#myModal" >Send by Email</button>
+    <!--<button ng-show="!vm.overwriteRecipe" type="submit" class="btn btn-default" data-toggle="modal" data-target="#myModal" >Send by Email</button>-->
      <div ng-show="vm.overwriteRecipe">
         <button type="submit" class="btn btn-default" ng-click="vm.editCurrentRecipe()">Overwrite Current Recipe</button> or  
         <button type="submit" class="btn btn-default" ng-click="vm.duplicateRecipe(vm.recipe)">Save Changes as New</button>?

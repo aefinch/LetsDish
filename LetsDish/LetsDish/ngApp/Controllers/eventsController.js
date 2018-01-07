@@ -37,7 +37,7 @@
     }
     vm.addRecipeToEvent = function () {
         vm.RecipeList = true;
-        $http.get(`api/Recipes/forUser/notEvent/${currentEvent.EventId}`)
+        $http.get(`api/Recipes/forUser`)
             .then(function (result) {
                 vm.recipes = result.data;
             })

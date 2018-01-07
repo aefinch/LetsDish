@@ -38,18 +38,12 @@
         vm.uploadPic = true;
     };
     vm.addPicture = function () {
-        // vm.image.PostedFile.SaveAs(Server.MapPath("~/images")+vm.image.FileName)
         var files = {};
         angular.forEach($scope.photos, function (photo) {
-            //console.log(vm.recipe.RecipeId);
-            //name = vm.recipe.RecipeId + photo.name;
-            //photo.name = name;
-            //console.log(photo.name);
+            
             photo.name = vm.recipe.RecipeId + photo.name
             files[photo.name] = photo;
-            //files[photo.name].name = name;
-            //console.log(files[photo.name].name);
-            //console.log(files[photo.name]);
+            
         });
         $http.post("api/photo", files,
             {
@@ -57,9 +51,7 @@
                 transformRequest: function (data) {
                     var formData = new FormData();
                     angular.forEach(data, function (value, key) {
-                        debugger
                         value.name = vm.recipe.RecipeId + value.name;
-                        debugger
                         formData.append(key, value);
                     });
                     return formData;
