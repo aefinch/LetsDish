@@ -5,12 +5,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace LetsDish.Models
 {
-	public class Ingredient
+	public class AddIngredient
 	{
-		[Key]
 		public int IngredientId { get; set; }
 		public string IngredientDescription { get; set; }
 		public bool OnShoppingList { get; set; }
-		public virtual Recipe Recipe {get; set;}
+		public int RecipeId { get; set; }
 	}
 }

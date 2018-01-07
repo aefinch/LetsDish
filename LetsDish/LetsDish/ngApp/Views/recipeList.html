@@ -1,0 +1,15 @@
+﻿<div ng-controller="recipeListController as vm">
+
+    <h1>My Recipes</h1>
+    <div class="row">
+        <div ng-repeat="recipe in vm.recipes" class="col-sm-6 col-md-4">
+            <div class="thumbnail" ng-click="vm.RecipeView(recipe.RecipeId)">
+                <img src="{{recipe.Picture}}">
+                <div class="caption">
+                    <h3 class="text-center">{{recipe.RecipeName}}</h3>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

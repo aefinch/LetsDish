@@ -1,0 +1,15 @@
+﻿<div ng-controller="shoppingListController as vm">
+    <h1>Shopping List</h1>
+    <table class="table table-striped">
+        <tr ng-repeat="ingredient in vm.ingredients">
+            <td>
+                <div class="checkbox" >
+                    <label>
+                        <input type="checkbox" ng-model="myCheckbox" ng-change="vm.removeFromList(ingredient)" /> {{ingredient.IngredientDescription}}
+                    </label>
+                </div>
+            </td>
+        </tr>
+    </table>
+    
+</div>
