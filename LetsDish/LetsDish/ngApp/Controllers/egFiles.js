@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('ngApp.Controllers')
+        .module('LetsDish')
         .directive('egFiles', egFiles);
 
     function egFiles() {
@@ -21,7 +21,7 @@
             element.bind('change', function () {
                 scope.$apply(function () {
                     if (element[0].files) {
-                        scope.files.length = 0;
+                       scope.files.length = 0;
 
                         angular.forEach(element[0].files, function (f) {
                             scope.files.push(f);

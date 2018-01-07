@@ -56,9 +56,15 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="RestSharp, Version=106.2.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.2.0\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -228,6 +234,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IngredientsController.cs" />
@@ -260,6 +267,10 @@
     <Compile Include="Migrations\201712161833255_reviseRecipeInputTypes.Designer.cs">
       <DependentUpon>201712161833255_reviseRecipeInputTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801062203429_renameRecipeList.cs" />
+    <Compile Include="Migrations\201801062203429_renameRecipeList.Designer.cs">
+      <DependentUpon>201801062203429_renameRecipeList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -283,6 +294,7 @@
     <Content Include="images\placeholder.png" />
     <Content Include="ngApp\app.js" />
     <Content Include="ngApp\appConfig.js" />
+    <Content Include="ngApp\appConstants.js" />
     <Content Include="ngApp\Controllers\editRecipeController.js" />
     <Content Include="ngApp\Controllers\eventsController.js" />
     <Content Include="ngApp\Controllers\friendsController.js" />
@@ -295,6 +307,7 @@
     <Content Include="ngApp\Views\addEvent.html" />
     <Content Include="ngApp\Views\addRecipe.html" />
     <Content Include="ngApp\Views\editRecipe.html" />
+    <Content Include="ngApp\Views\myEvents.html" />
     <Content Include="ngApp\Views\recipeList.html" />
     <Content Include="ngApp\Views\login.html" />
     <Content Include="ngApp\Views\shoppingList.html" />
@@ -393,6 +406,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712161833255_reviseRecipeInputTypes.resx">
       <DependentUpon>201712161833255_reviseRecipeInputTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801062203429_renameRecipeList.resx">
+      <DependentUpon>201801062203429_renameRecipeList.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

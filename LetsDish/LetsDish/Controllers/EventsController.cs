@@ -23,9 +23,18 @@ namespace LetsDish.Controllers
         {
             return db.Event;
         }
-
-        // GET: api/Events/5
-        [ResponseType(typeof(Event))]
+		// GET: api/Events/forUser
+		[ResponseType(typeof(Event))]
+		[HttpGet, Route("api/Events/forUser")]
+		public HttpResponseMessage GetEventsByUser()
+		{
+			var currentUser = User.Identity.GetUserId().ToString();
+			var events = db.Event.Where(@event => @event.User.Id == currentUser);
+			return Request.CreateResponse(HttpStatusCode.OK, events.ToList());
+		}
+		
+		// GET: api/Events/5
+		[ResponseType(typeof(Event))]
         public IHttpActionResult GetEvent(int id)
         {
             Event @event = db.Event.Find(id);
@@ -41,7 +50,8 @@ namespace LetsDish.Controllers
         [ResponseType(typeof(void))]
         public IHttpActionResult PutEvent(int id, Event @event)
         {
-            if (!ModelState.IsValid)
+			
+			if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
@@ -89,9 +99,28 @@ namespace LetsDish.Controllers
 
             return CreatedAtRoute("DefaultApi", new { id = @event.EventId }, @event);
         }
+		//POST: api/RecipeEvents/5/6
+		[ResponseType(typeof(Event))]
+		[HttpPost, Route("api/Events/{eventId}/{recipeId}")]
+		public IHttpActionResult PostEvent(int eventId, int recipeId)
+		{
+			
+			var @event = db.Event.Find(eventId);
+			var recipe = db.Recipe.Find(recipeId);
 
-        // DELETE: api/Events/5
-        [ResponseType(typeof(Event))]
+			if (!ModelState.IsValid)
+			{
+				return BadRequest(ModelState);
+			}
+			
+			@event.EventRecipes.Add(recipe);
+			db.SaveChanges();
+			return Ok();
+
+		}
+
+		// DELETE: api/Events/5
+		[ResponseType(typeof(Event))]
         public IHttpActionResult DeleteEvent(int id)
         {
             Event @event = db.Event.Find(id);
