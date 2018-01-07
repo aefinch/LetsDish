@@ -1,14 +1,14 @@
 ﻿app.controller("editRecipeController", ["$scope", "$http", "$location", "$routeParams", function ($scope, $http, $location, $routeParams) {
     let vm = this;
-    let id = $routeParams.id
+    let id = $routeParams.id;
     vm.editIngredient = false;
     vm.moreIngredients = false;
     thisRecipe = function () {
         $http.get(`api/Recipes/${id}`)
             .then(function (result) {
                 vm.recipe = result.data;
-            })
-    }
+            });
+    };
     thisRecipe();
     getIngredients = function () {
         $http.get(`/api/Ingredients/forRecipe/${id}`)
@@ -19,7 +19,7 @@
     getIngredients();
     vm.showEditIngredient = function () {
         vm.editIngredient = !vm.editIngredient;
-    }
+    };
     vm.updateIngredient = function (ingredient) {
         $http.put(`/api/Ingredients/${ingredient.IngredientId}`,
             JSON.stringify({
@@ -32,20 +32,20 @@
             .then(function (result) {
                 vm.showEditIngredient();
                 getIngredients();
-            })
+            });
 
 
-    }
+    };
     vm.deleteIngredient = function (ingredientId) {
         $http.delete(`/api/Ingredients/${ingredientId}`)
             .then(function (result) {
                 getIngredients();
             });
 
-    }
+    };
     vm.addMoreIngredients = function () {
         vm.moreIngredients = !vm.moreIngredients;
-    }
+    };
     vm.addIngredient = function () {
 
         let ingredient = vm.ingredient;
@@ -61,12 +61,12 @@
             })
             .catch(error => console.log(error));
 
-    }
+    };
     vm.doneWithIngredients = function () {
         vm.addIngredient();
         vm.addMoreIngredients();
 
-    }
+    };
    
     vm.updateRecipe = function () {
         let recipe = vm.recipe;
@@ -88,7 +88,7 @@
             })
             .catch(error => console.log(error));
 
-    }
+    };
     
 
 }]);

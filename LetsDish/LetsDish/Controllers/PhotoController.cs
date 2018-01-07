@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -25,7 +26,7 @@ namespace WebApiAngularJsUploader.Controllers
 			this.photoManager = photoManager;
 		}
 
-		// POST: api/Photo
+		// POST: api/Photo/5
 		public async Task<IHttpActionResult> Post()
 		{
 			// Check if the request contains multipart/form-data.
@@ -37,6 +38,8 @@ namespace WebApiAngularJsUploader.Controllers
 			try
 			{
 				var photos = await photoManager.Add(Request);
+				//var newfilename = photos[0].name;
+				//File.Move(@".\images\${photos[0].name}", @".\images\${newfilename}");
 				return Ok(new { Message = "Photos uploaded ok", Photos = photos });
 			}
 			catch (Exception ex)

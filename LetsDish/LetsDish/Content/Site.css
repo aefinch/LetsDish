@@ -15,3 +15,8 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.selectedRecipe {
+    border-color: blue;
+    border-width: 3px;
+}

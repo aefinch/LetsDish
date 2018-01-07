@@ -1,0 +1,25 @@
+﻿<div ng-controller="eventsController as vm">
+    <div ng-show="vm.listView">
+        <h1>My Events</h1>
+        <table class="table table-striped">
+            <tr ng-repeat="event in vm.events">
+                <td>
+                    <a ng-click="vm.viewEvent(event)">{{event.EventName}}</a>
+                </td>
+            </tr>
+        </table>
+        <button type="submit" class="btn btn-default" ng-click="vm.addEvent()">Add an Event</button>
+    </div>
+    <div ng-show="!vm.listView">
+        <h1>{{vm.singleEvent.EventName}}</h1>
+        <table class="table table-striped">
+            <tr ng-repeat="recipe in vm.singleEvent.EventRecipes">
+                <td>
+                    <a ng-click="vm.viewRecipe(recipe.RecipeId)">{{recipe.RecipeName}}</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <button type="submit" class="btn btn-default" ng-click="vm.backToList()">Back to List</button>
+
+</div>

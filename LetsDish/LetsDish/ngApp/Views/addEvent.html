@@ -1,12 +1,27 @@
 ﻿<div ng-controller="eventsController as vm">
     <form>
-        <div class="form-group">
+        <div ng-show="!vm.addRecipe" class="form-group">
             <label for="exampleInputEmail1">Event Name</label>
             <input ng-show="!addRecipe" ng-model="vm.event.EventName" type="text" class="form-control" id="exampleInputEmail1" placeholder="Name">
         </div>
-        <button type="submit" class="btn btn-default" ng-click="vm.createEvent()">Submit</button>
-        <button ng-show="addRecipe" type="submit" class="btn btn-default" ng-click="vm.addRecipeToEvent()">Add Recipes to Event</button>
+        <h1 ng-show="vm.addRecipe">{{vm.event.EventName}}</h1>
+        <button ng-show="!vm.addRecipe"type="submit" class="btn btn-default" ng-click="vm.createEvent()">Submit</button>
+        <button ng-show="vm.addRecipe && !vm.RecipeList" type="submit" class="btn btn-default" ng-click="vm.addRecipeToEvent()">Add Recipes to Event</button>
+        <button ng-show="vm.addRecipe" type="submit" class="btn btn-default" ng-click="vm.returnToList()">Return to Events List</button>
 
     </form>
+    <div ng-show="vm.RecipeList">
+        <div class="row">
+            <div ng-repeat="recipe in vm.recipes" class="col-sm-6 col-md-4 {{vm.selectedRecipe}}">
+                <div class="thumbnail" ng-click="vm.recipeToList(recipe)">
+                    <img src="{{recipe.Picture}}">
+                    <div class="caption">
+                        <h3 class="text-center">{{recipe.RecipeName}}</h3>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
