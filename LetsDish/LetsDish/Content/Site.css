@@ -1,6 +1,9 @@
 ﻿body {
     padding-top: 50px;
-    padding-bottom: 20px;
+    background-image: url('../images/letsdishbackground.jpg');
+    background-size: 200px;
+    background-repeat: repeat;
+    height: 100%;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -19,4 +22,73 @@ textarea {
 .selectedRecipe {
     border-color: blue;
     border-width: 3px;
+}
+
+#allContent {
+    background-color: #87c3aa;
+    min-height: 100%;
+    height: auto;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+footer {
+    width: 100%;
+    color: white;
+    text-align: left;
+}
+
+html {
+    height: 100%
+}
+
+#footerimg {
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+#footNote {
+    padding-top: 1rem;
+    padding-left: 1rem;
+}
+
+.headerImg {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 35%;
+}
+
+table {
+    background-color: white;
+}
+
+.logoHeader {
+    width: 5%
+}
+
+#logoImg {
+    width: 100%
+}
+
+#loginForm {
+    margin-top: 100px;
+}
+
+.navbar-left {
+    font-size: 20px;
+}
+
+#addEvent {
+    margin-top: 2rem;
+}
+
+#directions {
+    background-color: white;
+    padding: 2rem;
+}
+
+.backButton {
+    margin-top: 1rem;
 }

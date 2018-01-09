@@ -7,9 +7,12 @@
     var recipesToAdd = [];
     vm.createEvent = function () {
         let event = vm.event;
+        event.Picture = "./images/letsdisheventcard.PNG"
+
         $http.post("/api/Events",
             {
-                EventName: event.EventName
+                EventName: event.EventName,
+                Picture: event.Picture
             }
         )
             .then(result => {

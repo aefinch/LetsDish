@@ -11,8 +11,12 @@
         <div ng-repeat="ingredient in vm.ingredients">
             <ul ng-show="!vm.editIngredient">{{ingredient.IngredientDescription}}</ul>
             <input ng-show="vm.editIngredient" ng-model="ingredient.IngredientDescription" type="text" class="form-control" />
-            <button ng-show="vm.editIngredient" type="submit" class="btn btn-default" ng-click="vm.updateIngredient(ingredient)">Update</button>
-            <button ng-show="vm.editIngredient" type="submit" class="btn btn-default" ng-click="vm.deleteIngredient(ingredient.IngredientId)">Delete</button>
+            <button ng-show="vm.editIngredient" type="submit" class="btn btn-default" ng-click="vm.updateIngredient(ingredient)">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+            <button ng-show="vm.editIngredient" type="submit" class="btn btn-default" ng-click="vm.deleteIngredient(ingredient.IngredientId)">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+            </button>
         </div>
         <button ng-show="!vm.editIngredient" type="submit" class="btn btn-default" ng-click="vm.showEditIngredient()">Update Ingredients</button>
         <button type="submit" ng-show="!vm.moreIngredients" class="btn btn-default" ng-click="vm.addMoreIngredients()">Add New Ingredients</button>
