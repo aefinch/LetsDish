@@ -286,3 +286,6 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+
+# API key
+/LetsDish/LetsDish/ngApp/appConstants.js

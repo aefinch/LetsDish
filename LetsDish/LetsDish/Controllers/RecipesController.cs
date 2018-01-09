@@ -32,6 +32,16 @@ namespace LetsDish.Controllers
 			var recipes = db.Recipe.Where(recipe => recipe.User.Id == currentUser);
 			return Request.CreateResponse(HttpStatusCode.OK, recipes.ToList());
 		}
+		// GET: api/Recipes/forUser/notEvent/5
+		//[ResponseType(typeof(Recipe))]
+		//[HttpGet, Route("api/Recipes/forUser/notEvent/{id}")]
+		//public HttpResponseMessage GetRecipesByUser(int id)
+		//{
+		//	var @event = db.Event.Find(id);
+		//	var currentUser = User.Identity.GetUserId().ToString();
+		//	var recipes = db.Recipe.Where(recipe => (recipe.User.Id == currentUser && !recipe.Events.Contains(@event)));
+		//	return Request.CreateResponse(HttpStatusCode.OK, recipes.ToList());
+		//}
 		// GET: api/Recipes/5
 		[ResponseType(typeof(Recipe))]
         public IHttpActionResult GetRecipe(int id)
