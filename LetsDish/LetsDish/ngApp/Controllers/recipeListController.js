@@ -11,4 +11,7 @@
     vm.RecipeView = function (id) {
         $location.path(`recipeView/${id}`);
     }
+    vm.addArecipe = function () {
+        $location.path("addRecipe")
+    }
 }]);

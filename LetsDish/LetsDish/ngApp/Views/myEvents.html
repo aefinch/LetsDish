@@ -1,25 +1,47 @@
 ﻿<div ng-controller="eventsController as vm">
     <div ng-show="vm.listView">
-        <h1>My Events</h1>
-        <table class="table table-striped">
-            <tr ng-repeat="event in vm.events">
-                <td>
-                    <a ng-click="vm.viewEvent(event)">{{event.EventName}}</a>
-                </td>
-            </tr>
-        </table>
-        <button type="submit" class="btn btn-default" ng-click="vm.addEvent()">Add an Event</button>
+        <div class="text-center">
+            <img src="./images/letsdishmyeventsheader.PNG" class="headerImg" />
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail" ng-click="vm.addEvent()">
+                    <img src="./images/letsdisheventcard.png">
+                    <div class="caption">
+                        <h3 class="text-center">Add a New Event</h3>
+
+                    </div>
+                </div>
+            </div>
+            <div ng-repeat="event in vm.events" class="col-sm-6 col-md-4">
+                <div class="thumbnail" ng-click="vm.viewEvent(event)">
+                    <img src="{{event.Picture}}">
+                    <div class="caption">
+                        <h3 class="text-center">{{event.EventName}}</h3>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </div>
     <div ng-show="!vm.listView">
         <h1>{{vm.singleEvent.EventName}}</h1>
-        <table class="table table-striped">
-            <tr ng-repeat="recipe in vm.singleEvent.EventRecipes">
-                <td>
-                    <a ng-click="vm.viewRecipe(recipe.RecipeId)">{{recipe.RecipeName}}</a>
-                </td>
-            </tr>
-        </table>
-    <button type="submit" class="btn btn-default" ng-click="vm.backToList()">Back to List</button>
+        <div class="row">
+
+        <div ng-repeat="recipe in vm.singleEvent.EventRecipes" class="col-sm-6 col-md-4">
+            <div class="thumbnail" ng-click="vm.viewRecipe(recipe.RecipeId)">
+                <img src="{{recipe.Picture}}">
+                <div class="caption">
+                    <h3 class="text-center">{{recipe.RecipeName}}</h3>
+
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="row backButton">
+            <button type="submit" class="btn btn-default" ng-click="vm.backToList()">Back to List</button>
+        </div>
     </div>
 
 </div>

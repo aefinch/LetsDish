@@ -1,5 +1,5 @@
 ﻿<div ng-controller="eventsController as vm">
-    <form>
+    <form id="addEvent">
         <div ng-show="!vm.addRecipe" class="form-group">
             <label for="exampleInputEmail1">Event Name</label>
             <input ng-show="!addRecipe" ng-model="vm.event.EventName" type="text" class="form-control" id="exampleInputEmail1" placeholder="Name">

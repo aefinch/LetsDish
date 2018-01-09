@@ -1,27 +1,45 @@
 ﻿<div ng-controller="recipeViewController as vm">
     <h1>{{vm.recipe.RecipeName}}</h1>
-    <h3>{{vm.recipe.RecipeSource}}</h3>
-    <table class="table table-striped">
-        <tr ng-repeat="ingredient in vm.ingredients">
-            <td>{{ingredient.IngredientDescription}}</td>
+    <h3>by {{vm.recipe.RecipeSource}}</h3>
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Add to Shopping List</th>
+                <th>Ingredient</th>
+            </tr>
+        </thead>
+        <tr ng-repeat="ingredient in vm.ingredients" >
             <td>
-                <button type="submit" class="btn btn-default" ng-click="vm.addToList(ingredient)">Add To Shopping List</button>
+                <button type="submit" class="btn btn-default addIngredient" ng-click="vm.addToList(ingredient)">
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                </button>
             </td>
+            <td>{{ingredient.IngredientDescription}}</td>
         </tr>
     </table>
+    <!--<div class="col-md-6">
+        <div ng-repeat="ingredient in vm.ingredients">
+            <button type="submit" class="btn btn-default addIngredient" ng-click="vm.addToList(ingredient)">Add To Shopping List</button>
+            
+        </div>
+    </div>-->
+
     <!--<div ng-repeat="ingredient in vm.ingredients">
        <ul>{{ingredient.IngredientDescription}}
        </ul>
         <button type="submit" class="btn btn-default" ng-click="vm.addToList(ingredient)">Add To Shopping List</button>
 
     </div>-->
-   <h4>Instructions:</h4>
+   <div id="directions">
+    <h4>Instructions:</h4>
     <div>
         {{vm.recipe.Instructions}}
     </div>
+       <br />
     Yields: {{vm.recipe.Yield}}
     <br />
     Time to Make: {{vm.recipe.MinutesToMake}}
+   </div>
 
     <br />
     <br />

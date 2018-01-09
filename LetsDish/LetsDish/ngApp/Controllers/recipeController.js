@@ -47,7 +47,7 @@
     };
     vm.updateRecipe = function () {
         let recipe = vm.recipe;
-        recipe.Picture = "./images/placeholder.png"
+        recipe.Picture = "./images/RecipeCard.PNG"
         $http.put(`/api/Recipes/${currentRecipe.RecipeId}`,
             JSON.stringify({
                 RecipeId: currentRecipe.RecipeId,
